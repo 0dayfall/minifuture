@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "strike-selector"
+version = "0.1.0"
+description = "Select mini futures based on risk and price levels."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+dependencies = [
+  "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+avanza = [
+  "python-avanza",
+  "avanzapy",
+]
+
+[project.scripts]
+strike-selector = "strike_selector.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["strike_selector", "strike_selector.providers"]
